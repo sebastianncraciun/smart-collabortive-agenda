@@ -14,6 +14,10 @@ class MyProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbarMyProfile)
-        supportActionBar?.title=""
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title="My Profile"
+        binding.toolbarMyProfile.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 }

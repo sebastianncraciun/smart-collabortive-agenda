@@ -22,6 +22,11 @@
         android:icon="@drawable/ic_search"
         app:showAsAction="always"/>
 
+    <item android:id="@+id/miShare"
+        android:title="@string/calendar"
+        android:icon="@drawable/ic_share"
+        app:showAsAction="always"/>
+
     <item android:id="@+id/miSettings"
         android:title="@string/settings"
         android:icon="@drawable/ic_settings"
