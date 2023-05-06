@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "129852363576",
+    "project_id": "sca-auth-a41f7",
+    "storage_bucket": "sca-auth-a41f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129852363576:android:e2c5a38fa0494613c227cd",
+        "android_client_info": {
+          "package_name": "com.example.smartagenda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129852363576-dbdi7cqsbu9pah38v78v073vosjilumt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartagenda",
+            "certificate_hash": "af494e5b531cee80976291edba0d1a7fea68d844"
+          }
+        },
+        {
+          "client_id": "129852363576-f4d4s3auj4ombujem4g905c3pp0cehau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTDFkwXwJ9L6U-jRK2CxOk07gW84cvOKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129852363576-f4d4s3auj4ombujem4g905c3pp0cehau.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

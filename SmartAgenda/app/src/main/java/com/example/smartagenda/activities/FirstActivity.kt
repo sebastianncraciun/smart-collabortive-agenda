@@ -8,12 +8,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.smartagenda.R
 import com.example.smartagenda.databinding.ActivityFirstBinding
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
 class FirstActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFirstBinding
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +81,8 @@ class FirstActivity : AppCompatActivity() {
                 return true
             }
             R.id.miClose -> {
-                finish()
+                auth.signOut()
+                startActivity(Intent(this , MainActivity::class.java))
                 return true
             }else -> return super.onOptionsItemSelected(item)
         }
