@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/miMyProfile"
+        android:title="MyProfile"
+        android:icon="@drawable/ic_my_profile"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/miNotifications"
+        android:title="@string/notifications"
+        android:icon="@drawable/ic_notifications"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/miCalendar"
+        android:title="@string/calendar"
+        android:icon="@drawable/ic_calendar"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/miSearch"
+        android:title="@string/calendar"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/miSettings"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/miClose"
+        android:title="Close App"
+        android:icon="@drawable/ic_close"
+        app:showAsAction="always"/>
+
+</menu>

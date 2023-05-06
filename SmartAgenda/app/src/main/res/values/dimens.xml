@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="appTitle_size">24sp</dimen>
+    <dimen name="card_text_size">32sp</dimen>
+    <dimen name="text_size">24sp</dimen>
+    <dimen name="small_text_size">18sp</dimen>
+    <dimen name="padding">10dp</dimen>
+    <dimen name="cardRadius">20dp</dimen>
+    <dimen name="cardElevation">5dp</dimen>
+    <dimen name="marginStart">10dp</dimen>
+    <dimen name="marginEnd">10dp</dimen>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="card_marginStart">16dp</dimen>
+    <dimen name="card_marginTop">10dp</dimen>
+    <dimen name="card_marginEnd">16dp</dimen>
+    <dimen name="card_marginBottom">10dp</dimen>
+    <dimen name="my_profile_user_image_size">100dp</dimen>
+</resources>
