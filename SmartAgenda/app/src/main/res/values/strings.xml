@@ -16,4 +16,5 @@
     <string name="email">Email</string>
     <string name="my_ai_assistant">My AI Assistant</string>
     <string name="smart_collaborative_agenda">Smart Collaborative Agenda</string>
+    <string name="pleaseWait">Please Wait...</string>
 </resources>
