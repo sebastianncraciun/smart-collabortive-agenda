@@ -35,9 +35,6 @@ class FirstActivity : AppCompatActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         auth = FirebaseAuth.getInstance()
-        val email = intent.getStringExtra("email")
-        val displayName = intent.getStringExtra("name")
-        binding.appTitle.text = email + "\n" + displayName
 
         binding.goals.setOnClickListener {
             val intent = Intent(this@FirstActivity, GoalsActivity::class.java)
@@ -69,8 +66,12 @@ class FirstActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.miMyProfile -> {
-                val intent = Intent(this@FirstActivity, MyProfileActivity::class.java)
-                startActivity(intent)
+                val intent2 = Intent(this@FirstActivity, MyProfileActivity::class.java)
+                val receivedIntent = getIntent()
+                intent2.putExtra("name" , receivedIntent.getStringExtra("name"))
+                intent2.putExtra("photoUrl" , FirebaseAuth.getInstance().currentUser?.photoUrl.toString())
+                intent2.putExtra("email" , receivedIntent.getStringExtra("email"))
+                startActivity(intent2)
                 return true
             }
             R.id.miNotifications -> {
