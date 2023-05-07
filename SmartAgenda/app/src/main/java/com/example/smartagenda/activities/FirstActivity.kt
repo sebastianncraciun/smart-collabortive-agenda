@@ -1,18 +1,14 @@
 package com.example.smartagenda.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
-import com.example.smartagenda.R
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
+import com.example.smartagenda.R
 import com.example.smartagenda.databinding.ActivityFirstBinding
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -25,9 +21,8 @@ class FirstActivity : AppCompatActivity() {
         binding = ActivityFirstBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.title=""
-
+        setSupportActionBar(binding.toolbar.toolbar)
+        supportActionBar?.title = ""
 
         binding.goals.setOnClickListener {
             val intent = Intent(this@FirstActivity, GoalsActivity::class.java)
@@ -44,45 +39,61 @@ class FirstActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.robot.setOnClickListener {
+            val intent = Intent(this@FirstActivity, RobotActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.nav_menu, menu)
-
-        // Iterate through the menu items and apply color black
-        for(i in 0 until menu?.size()!!){
-            val menuItem = menu?.getItem(i)
-            val spannableString = SpannableString(menuItem?.title)
-            spannableString.setSpan(ForegroundColorSpan(ContextCompat.getColor(this, R.color.black)), 0, spannableString.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-            menuItem?.title = spannableString
-        }
-        return super.onCreateOptionsMenu(menu)
+        return true
     }
 
-    fun onMenuItemClicked(view: View){
-        when (view.id){
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.miMyProfile -> {
-                val intent = Intent(this@FirstActivity, MyProfileActivity::class.java)
-                startActivity(intent)
+                val intent2 = Intent(this@FirstActivity, MyProfileActivity::class.java)
+                val receivedIntent = getIntent()
+                intent2.putExtra("name" , receivedIntent.getStringExtra("name"))
+                intent2.putExtra("photoUrl" , FirebaseAuth.getInstance().currentUser?.photoUrl.toString())
+                intent2.putExtra("email" , receivedIntent.getStringExtra("email"))
+                startActivity(intent2)
+                return true
             }
-            R.id.miNotifications -> Toast.makeText(this, "You clicked on Notifications.", Toast.LENGTH_SHORT).show()
-            R.id.miCalendar -> Toast.makeText(this, "You clicked on Calendar.", Toast.LENGTH_SHORT).show()
-            R.id.miSearch -> Toast.makeText(this, "You clicked on Search.", Toast.LENGTH_SHORT).show()
-            R.id.miSettings -> Toast.makeText(this, "You clicked on Settings.", Toast.LENGTH_SHORT).show()
-            R.id.miClose -> finish()
+            R.id.miNotifications -> {
+                Toast.makeText(this, "You clicked on Notifications.", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.miCalendar -> {
+                Toast.makeText(this, "You clicked on Calendar.", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.miSearch -> {
+                Toast.makeText(this, "You clicked on Search.", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.miShare -> {
+                Toast.makeText(this, "You clicked on Share.", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.miSettings -> {
+                Toast.makeText(this, "You clicked on Settings.", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.miClose -> {
+                Toast.makeText(this, "You clicked on X.", Toast.LENGTH_SHORT).show()
+                return true
+            }else -> return super.onOptionsItemSelected(item)
         }
     }
 
-
-
-    fun clickDatePicker(){
+    fun clickDatePicker() {
         val myCalendar = Calendar.getInstance()
         val year = myCalendar.get(Calendar.YEAR)
         val month = myCalendar.get(Calendar.MONTH)
         val day = myCalendar.get(Calendar.DAY_OF_MONTH)
-
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
-
-
     }
 }

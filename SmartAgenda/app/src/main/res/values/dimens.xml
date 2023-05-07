@@ -14,5 +14,5 @@
     <dimen name="card_marginTop">10dp</dimen>
     <dimen name="card_marginEnd">16dp</dimen>
     <dimen name="card_marginBottom">10dp</dimen>
-    <dimen name="my_profile_user_image_size">100dp</dimen>
+    <dimen name="my_profile_user_image_size">150dp</dimen>
 </resources>
