@@ -52,10 +52,11 @@
 
                 <TextView
                     android:id="@+id/goals"
-                    android:layout_width="170dp"
+                    android:layout_width="169dp"
                     android:layout_height="200dp"
                     android:fontFamily="@font/nunitobold"
                     android:gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:text="@string/goals"
                     android:textColor="@color/white"
                     android:textSize="@dimen/card_text_size"
@@ -78,6 +79,7 @@
                     android:fontFamily="@font/nunitobold"
                     android:gravity="center"
                     android:src="@drawable/card"
+                    android:layout_gravity="center_horizontal"
                     android:text="@string/habits"
                     android:textColor="@color/white"
                     android:textSize="@dimen/card_text_size"
@@ -111,6 +113,7 @@
                     android:layout_height="200dp"
                     android:fontFamily="@font/nunitobold"
                     android:gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:src="@drawable/card"
                     android:text="@string/tasks"
                     android:textColor="@color/white"
