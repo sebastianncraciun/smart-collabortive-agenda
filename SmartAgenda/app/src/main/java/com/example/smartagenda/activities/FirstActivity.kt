@@ -25,7 +25,7 @@ class FirstActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar.toolbar)
         supportActionBar?.title = ""
 
-
+        auth = FirebaseAuth.getInstance()
         binding.goals.setOnClickListener {
             val intent = Intent(this@FirstActivity, GoalsActivity::class.java)
             startActivity(intent)
