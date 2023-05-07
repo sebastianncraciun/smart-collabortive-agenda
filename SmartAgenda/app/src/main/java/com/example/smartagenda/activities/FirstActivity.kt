@@ -8,6 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.smartagenda.R
 import com.example.smartagenda.databinding.ActivityFirstBinding
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
@@ -16,6 +19,7 @@ class FirstActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFirstBinding
     private lateinit var auth : FirebaseAuth
+    private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +29,16 @@ class FirstActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar.toolbar)
         supportActionBar?.title = ""
 
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
         auth = FirebaseAuth.getInstance()
+        val email = intent.getStringExtra("email")
+        val displayName = intent.getStringExtra("name")
+        binding.appTitle.text = email + "\n" + displayName
+
         binding.goals.setOnClickListener {
             val intent = Intent(this@FirstActivity, GoalsActivity::class.java)
             startActivity(intent)
@@ -81,8 +94,7 @@ class FirstActivity : AppCompatActivity() {
                 return true
             }
             R.id.miClose -> {
-                auth.signOut()
-                startActivity(Intent(this , MainActivity::class.java))
+                signOut()
                 return true
             }else -> return super.onOptionsItemSelected(item)
         }
@@ -97,5 +109,14 @@ class FirstActivity : AppCompatActivity() {
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
 
 
+    }
+
+    private fun signOut() {
+        googleSignInClient.signOut()
+            .addOnCompleteListener(this) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
     }
 }

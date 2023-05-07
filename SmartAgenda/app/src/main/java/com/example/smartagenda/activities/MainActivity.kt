@@ -71,8 +71,8 @@ class MainActivity : AppCompatActivity() {
         auth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful){
                 val intent : Intent = Intent(this , FirstActivity::class.java)
-                intent.putExtra("email" , account.email)
                 intent.putExtra("name" , account.displayName)
+                intent.putExtra("photoUrl" , account.photoUrl)
                 startActivity(intent)
             }else{
                 Toast.makeText(this, it.exception.toString() , Toast.LENGTH_SHORT).show()
