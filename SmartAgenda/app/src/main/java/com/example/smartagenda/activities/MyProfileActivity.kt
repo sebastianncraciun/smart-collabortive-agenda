@@ -13,6 +13,7 @@ import com.example.smartagenda.databinding.ActivityMyProfileBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
 import model.User
 import utils.Constants
@@ -55,11 +56,14 @@ class MyProfileActivity : AppCompatActivity() {
     }
 
     private fun signOut() {
+        FirebaseAuth.getInstance().signOut()
         googleSignInClient.signOut()
             .addOnCompleteListener(this) {
                 val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 finish()
             }
+
     }
 }
