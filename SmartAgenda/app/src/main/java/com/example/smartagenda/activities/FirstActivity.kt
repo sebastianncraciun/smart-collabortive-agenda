@@ -88,12 +88,4 @@ class FirstActivity : AppCompatActivity() {
             }else -> return super.onOptionsItemSelected(item)
         }
     }
-
-    fun clickDatePicker() {
-        val myCalendar = Calendar.getInstance()
-        val year = myCalendar.get(Calendar.YEAR)
-        val month = myCalendar.get(Calendar.MONTH)
-        val day = myCalendar.get(Calendar.DAY_OF_MONTH)
-        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
-    }
 }

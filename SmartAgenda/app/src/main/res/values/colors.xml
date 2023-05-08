@@ -15,6 +15,7 @@
     <color name="green3">#3d9a28</color>
     <color name="green4">#7dc713</color>
     <color name="green5">#abde1f</color>
+    <color name="bg_color">#172627</color>
 
 
 </resources>
