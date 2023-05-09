@@ -15,8 +15,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.squareup.picasso.Picasso
-import model.User
-import utils.Constants
+import com.example.smartagenda.model.User
+import com.example.smartagenda.utils.Constants
 
 
 class MyProfileActivity : AppCompatActivity() {

@@ -17,17 +17,31 @@
         android:theme="@style/Theme.SmartAgenda"
         tools:targetApi="31">
         <activity
-            android:name=".activities.RobotActivity"
-            android:theme="@style/CustomNoActionBarTheme"
+            android:name=".activities.CollaborativeTasksActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.MyProfileActivity"
-            android:theme="@style/CustomNoActionBarTheme"
+            android:name=".activities.PersonalTasksActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.RobotActivity"
+            android:exported="false"
+            android:theme="@style/CustomNoActionBarTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.MyProfileActivity"
+            android:exported="false"
+            android:theme="@style/CustomNoActionBarTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
