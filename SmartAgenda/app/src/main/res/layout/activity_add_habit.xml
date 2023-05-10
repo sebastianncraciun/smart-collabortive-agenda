@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:nestedScrollingEnabled="true"
-    tools:context=".activities.HabitsActivity">
+    tools:context=".activities.AddHabitActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarHabits"
@@ -17,32 +16,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnAdd"
+    <EditText
+        android:id="@+id/etHabit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add habit"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/nunitomedium"
+        android:hint="Add new habit"
+        android:inputType="text"
+        android:textSize="@dimen/text_size"
+        android:layout_marginTop="20dp"
+        android:textColorHint="@color/light_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarHabits" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:background="@drawable/gradient_main_toolbar"
         android:fontFamily="@font/nunitomedium"
+        android:text="@string/save"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarHabits"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        android:layout_marginTop="@dimen/padding"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="110dp"
-        android:padding="@dimen/padding"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" >
+        app:layout_constraintStart_toEndOf="@+id/etHabit"
 
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@id/etHabit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,12 +10,16 @@ import retrofit2.Response
 
 class Repository {
 
-    suspend fun getHabits(userId: UserId): Response<Habit> {
+    suspend fun getHabits(userId: UserId): Response<List<Habit>> {
         return RetrofitInstance.api.getHabits(userId)
     }
 
     suspend fun askAssistant(question: Question): Response<Message>{
         return RetrofitInstance.apiAI.sendMessage(question)
+    }
+
+    suspend fun postHabit(userId: UserId, habit: Habit): Response<Message>{
+        return RetrofitInstance.api.postHabit(userId,habit)
     }
 
 }

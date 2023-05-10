@@ -12,8 +12,11 @@ import retrofit2.http.POST
 interface SimpleApi {
 
     @POST("sca-db-microservice/v1/getHabits")
-    suspend fun getHabits(@Body userId: UserId): Response<Habit>
+    suspend fun getHabits(@Body userId: UserId): Response<List<Habit>>
 
     @POST("sca-ai-assistant-microservice/v1/sendMessage")
     suspend fun sendMessage(@Body question: Question): Response<Message>
+
+    @POST("sca-db-microservice/v1/postHabit")
+    suspend fun postHabit(@Body userId: UserId, @Body habit: Habit): Response<Message>
 }
