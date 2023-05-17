@@ -3,9 +3,7 @@ package com.example.smartagenda
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.smartagenda.model.Habit
-import com.example.smartagenda.model.Message
-import com.example.smartagenda.model.UserId
+import com.example.smartagenda.model.*
 import com.example.smartagenda.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -16,7 +14,8 @@ class AddHabitViewModel(private val repository: Repository): ViewModel() {
 
     fun postHabit(userId: UserId, habit: Habit){
         viewModelScope.launch {
-            val response = repository.postHabit(userId, habit)
+            val postHabit = PostHabitRequest(userId, habit)
+            val response = repository.postHabit(postHabit)
             myResponse.value = response
         }
     }

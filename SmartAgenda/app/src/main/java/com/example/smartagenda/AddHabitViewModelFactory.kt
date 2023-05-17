@@ -6,6 +6,6 @@ import com.example.smartagenda.repository.Repository
 
 class AddHabitViewModelFactory(private val repository: Repository): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return HabitsViewModel(repository) as T
+        return AddHabitViewModel(repository) as T
     }
 }

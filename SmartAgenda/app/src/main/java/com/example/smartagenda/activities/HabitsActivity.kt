@@ -20,8 +20,9 @@ import com.example.smartagenda.adapter.HabitsAdapter
 import com.example.smartagenda.databinding.ActivityHabitsBinding
 import com.example.smartagenda.model.UserId
 import com.example.smartagenda.repository.Repository
+import com.google.firebase.auth.FirebaseAuth
 
-class HabitsActivity : AppCompatActivity() {
+class HabitsActivity : AppCompatActivity(),HabitsAdapter.OnHabitsClickListener {
 
     private lateinit var binding: ActivityHabitsBinding
     private lateinit var viewModel: HabitsViewModel
@@ -44,7 +45,7 @@ class HabitsActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = HabitsViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(HabitsViewModel::class.java)
-        val userId = UserId("vv@stud.ase.ro")
+        val userId = UserId(intent.getStringExtra("email").toString())
         viewModel.getHabits(userId)
         viewModel.myResponse.observe(this, Observer { response ->
             if(response.isSuccessful) {
@@ -63,15 +64,19 @@ class HabitsActivity : AppCompatActivity() {
 //
 //        })
         binding.btnAdd.setOnClickListener {
-            val intent = Intent(this@HabitsActivity,AddHabitActivity::class.java)
+            val intent = Intent(this,AddHabitActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun setupRecyclerview(){
-        habitsAdapter = HabitsAdapter()
+        habitsAdapter = HabitsAdapter(this)
         //binding.habitsRecyclerView.adapter = habitsAdapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = habitsAdapter
+    }
+
+    override fun onItemDelete(id: String) {
+       // viewModel.deleteHabit()
     }
 }

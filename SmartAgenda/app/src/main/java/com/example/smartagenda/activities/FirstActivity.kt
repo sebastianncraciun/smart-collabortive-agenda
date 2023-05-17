@@ -31,6 +31,7 @@ class FirstActivity : AppCompatActivity() {
 
         binding.habits.setOnClickListener {
             val intent = Intent(this@FirstActivity, HabitsActivity::class.java)
+            intent.putExtra("email" , getIntent().getStringExtra("email"))
             startActivity(intent)
         }
 

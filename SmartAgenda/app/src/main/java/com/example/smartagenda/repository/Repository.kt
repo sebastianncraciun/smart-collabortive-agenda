@@ -1,10 +1,7 @@
 package com.example.smartagenda.repository
 
 import com.example.smartagenda.api.RetrofitInstance
-import com.example.smartagenda.model.Habit
-import com.example.smartagenda.model.Message
-import com.example.smartagenda.model.Question
-import com.example.smartagenda.model.UserId
+import com.example.smartagenda.model.*
 import com.google.gson.Gson
 import retrofit2.Response
 
@@ -18,8 +15,12 @@ class Repository {
         return RetrofitInstance.apiAI.sendMessage(question)
     }
 
-    suspend fun postHabit(userId: UserId, habit: Habit): Response<Message>{
-        return RetrofitInstance.api.postHabit(userId,habit)
+    suspend fun postHabit(request: PostHabitRequest): Response<Message>{
+        return RetrofitInstance.api.postHabit(request)
+    }
+
+    suspend fun deleteHabit(request: DeleteHabitRequest): Response<Message>{
+        return RetrofitInstance.api.deleteHabit(request)
     }
 
 }

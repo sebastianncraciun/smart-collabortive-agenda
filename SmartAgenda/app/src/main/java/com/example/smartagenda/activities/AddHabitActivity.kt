@@ -33,22 +33,23 @@ class AddHabitActivity : AppCompatActivity() {
         val repository = Repository()
         val viewModelFactory = AddHabitViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(AddHabitViewModel::class.java)
-
+        Log.d("test_sebi","gdgdfgfd")
         binding.btnSave.setOnClickListener {
+            Log.d("test_sebi","gdgdfgfd")
             if(binding.etHabit.text.isNotEmpty()) {
-                val userId = UserId(FirebaseAuth.getInstance().currentUser?.email.toString())
-                val habit = Habit(binding.etHabit.text.toString())
-                viewModel.postHabit(userId, habit)
-                        viewModel.myResponse.observe(this, Observer { response ->
+//                val userId = UserId(FirebaseAuth.getInstance().currentUser?.email.toString())
+//                val habit = Habit(binding.etHabit.text.toString())
+//                viewModel.postHabit(userId, habit)
+            }}
+        viewModel.myResponse.observe(this, Observer { response ->
             if(response.isSuccessful){
                 finish()
             }else{
                 Log.d("testez", response.code().toString())
             }
 
-        })
+            })
 
-            }
         }
+
     }
-}
